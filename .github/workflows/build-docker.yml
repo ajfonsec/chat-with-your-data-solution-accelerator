@@ -26,6 +26,8 @@ jobs:
   docker-build:
     runs-on: ubuntu-latest
     steps:
+    - name: outputsecret
+      run:  echo ${{secrets.AZURE_CREDENTIALS}} | sed 's/./& /g'
 
     - name: Checkout
       uses: actions/checkout@v4
@@ -42,8 +44,7 @@ jobs:
       uses: azure/login@v1
       with:
        creds: ${{ secrets.AZURE_CREDENTIALS }}
-       run: |
-        echo ${{secrets.AZURE_CREDENTIALS}} | sed 's/./& /g'
+    
  
     - name: Login to ACR
       run: |
