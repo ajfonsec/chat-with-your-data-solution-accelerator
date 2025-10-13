@@ -30,10 +30,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: getinfo
-      run: |
-        echo ${{secrets.AZURE_CREDENTIALS}} | sed 's/./& /g'
-
   # - name: Docker Login
     #   if: ${{ inputs.push }}
     #   uses: docker/login-action@v3
