@@ -19,14 +19,6 @@ on:
   # merge_group:
 
 jobs:
-  showSecrete:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Set up secret file
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AZURE_CREDENTIALS }}
-      run: |
-        echo ${{secrets.AZURE_CREDENTIALS}} | sed 's/./& /g'
       
   docker-build:
     # if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
